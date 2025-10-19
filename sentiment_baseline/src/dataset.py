@@ -2,7 +2,7 @@ from torch.utils.data import Dataset, DataLoader
 from datasets import load_dataset
 
 from configs import dataset_name, max_length, batch_size
-from model&tokenizer import tokenizer
+from model_and_tokenizer import tokenizer
 
 ds = load_dataset(dataset_name)
 

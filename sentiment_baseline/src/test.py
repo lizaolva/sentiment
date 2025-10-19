@@ -1,4 +1,4 @@
-from model&tokenizer import model
+from model_and_tokenizer import model
 from dataset import test_loader
 
 import torch

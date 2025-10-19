@@ -1,0 +1,7 @@
+batch_size = 16
+max_length = 512
+epochs = 3
+num_labels = 3
+
+dataset_name = "ai-forever/kinopoisk-sentiment-classification"
+model_name = 'DeepPavlov/rubert-base-cased'

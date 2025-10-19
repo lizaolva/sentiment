@@ -1,9 +1,10 @@
-from model&tokenizer import model, tokenizer
-import training_args
+from model_and_tokenizer import model, tokenizer
+from training_args import training_args
 from dataset import val_loader, train_loader
 from metrics import compute_metrics
 
 from torch.utils.data import Dataset, DataLoader
+from transformers import Trainer
 
 trainer = Trainer(
     model=model,
