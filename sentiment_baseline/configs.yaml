@@ -1,0 +1,17 @@
+training:
+    batch_size: 16
+    max_length: 512
+    epochs: 3
+    learning_rate: 2e-5
+    weight_decay: 0.01
+
+data:
+    dataset_name: "ai-forever/kinopoisk-sentiment-classification"
+model:
+    model_name: 'DeepPavlov/rubert-base-cased'
+    num_labels: 3
+
+# некрасиво
+dirs:
+    output: "outputs/"
+    model: "model/"

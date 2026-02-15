@@ -1,8 +1,12 @@
 from torch.utils.data import Dataset, DataLoader
 from datasets import load_dataset
 
-from configs import dataset_name, max_length, batch_size
 from model_and_tokenizer import tokenizer
+import runtime_config
+cfg = runtime_config.CFG
+dataset_name = cfg['data']['dataset_name']
+max_length = cfg['training']['max_length']
+batch_size = cfg['training']['batch_size']
 
 ds = load_dataset(dataset_name)
 
