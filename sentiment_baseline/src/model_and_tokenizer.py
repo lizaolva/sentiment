@@ -3,7 +3,7 @@ import runtime_config
 
 cfg = runtime_config.CFG
 model_name = cfg['model']['model_name']
-num_labels = cfg['training']['num_labels']
+num_labels = cfg['model']['num_labels']
 
 tokenizer = BertTokenizerFast.from_pretrained(model_name)
 model = BertForSequenceClassification.from_pretrained(model_name, num_labels= num_labels)

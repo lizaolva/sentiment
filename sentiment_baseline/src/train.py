@@ -1,8 +1,3 @@
-from model_and_tokenizer import model, tokenizer
-from training_args import training_args
-from dataset import val_loader, train_loader
-from metrics import compute_metrics
-from optimizer_sheduler import optimizer, scheduler
 from transformers import Trainer
 import os, json, argparse
 from pathlib import Path
@@ -20,6 +15,12 @@ output_dir = Path(output_dir)
 output_dir.mkdir(parents=True, exist_ok=True)
 model_dir = Path(model_dir)
 model_dir.mkdir(parents=True, exist_ok=True)
+
+from model_and_tokenizer import model, tokenizer
+from training_args import training_args
+from dataset import val_loader, train_loader
+from metrics import compute_metrics
+from optimizer_sheduler import optimizer, scheduler
 
 trainer = Trainer(
     model=model,

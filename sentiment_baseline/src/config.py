@@ -1,4 +1,4 @@
-import yaml
+import yaml, os
 
 def load_config(path):
     with open(path) as f:

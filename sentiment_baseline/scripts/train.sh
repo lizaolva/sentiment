@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-python src/train.py \
-  --config config.yaml \
+python3 src/train.py \
+  --config configs.yaml \
 
 # добавить скрипт для теста, где будут браться готовые чекпоинты
