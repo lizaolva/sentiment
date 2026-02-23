@@ -1,5 +1,6 @@
 from transformers import Trainer
-import os, json, argparse
+import os, json, argparse, torch, random
+import numpy as np
 from pathlib import Path
 import runtime_config
 from config import load_config
@@ -13,14 +14,21 @@ output_dir = cfg['dirs']['output']
 model_dir = cfg['dirs']['model']
 output_dir = Path(output_dir)
 output_dir.mkdir(parents=True, exist_ok=True)
-model_dir = Path(model_dir)
-model_dir.mkdir(parents=True, exist_ok=True)
 
 from model_and_tokenizer import model, tokenizer
-from training_args import training_args
+from training_args import training_args, model_dir
 from dataset import val_loader, train_loader
 from metrics import compute_metrics
 from optimizer_sheduler import optimizer, scheduler
+
+def set_random_seed(seed):
+    torch.backends.cudnn.deterministic = True
+    torch.backends.cudnn.benchmark = False
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed(seed)
+    np.random.seed(seed)
+    random.seed(seed)
+set_random_seed(224)
 
 trainer = Trainer(
     model=model,
