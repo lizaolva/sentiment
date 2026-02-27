@@ -15,7 +15,6 @@ parser = argparse.ArgumentParser()
 parser.add_argument("--config", required=True)
 parser.add_argument("--datasets_path", required=True)
 parser.add_argument("--model_dir", required=True)
-parser.add_argument("--checkpoints_dir", required=True)
 parser.add_argument("--outputs_dir", required=True)
 args = parser.parse_args()
 with open(args.config) as f:
@@ -33,8 +32,6 @@ output_dir = Path(args.outputs_dir)
 output_dir.mkdir(parents=True, exist_ok=True)
 model_dir = Path(args.model_dir)
 model_dir.mkdir(parents=True, exist_ok=True)
-checkpoints_dir = Path(args.checkpoints_dir)
-checkpoints_dir.mkdir(parents=True, exist_ok=True)
 datasets_dir = Path(args.datasets_path)
 
 def set_random_seed(seed):
@@ -76,7 +73,7 @@ device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 model = model.to(device)
 
 optimizer, scheduler = optim_sheduler(model, train_loader, epochs, batch_size)
-training_args = train_args(checkpoints_dir, learning_rate, weight_decay, batch_size, epochs)
+training_args = train_args(learning_rate, weight_decay, batch_size, epochs)
 
 trainer = Trainer(
     model=model,
