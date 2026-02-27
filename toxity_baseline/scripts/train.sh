@@ -3,6 +3,5 @@ set -e
 
 python3 src/train.py \
   --config configs.yaml \
-  --datasets_path datasets/ \
   --model_dir model/ \
   --outputs_dir outputs/ \

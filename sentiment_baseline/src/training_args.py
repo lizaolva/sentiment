@@ -22,9 +22,11 @@ training_args = TrainingArguments(
     per_device_train_batch_size=batch_size,
     per_device_eval_batch_size=batch_size,
     num_train_epochs=epochs,
-    logging_steps=10,
-    save_strategy="epoch", # возможно сократить
+    logging_steps=100,
+    save_strategy="epoch",
+    save_total_limit=2,
+    save_only_model=True,
     load_best_model_at_end=True,
     metric_for_best_model="f1",
-    gradient_checkpointing=True # что и зачем
+    logging_strategy="epoch"
 )
