@@ -4,7 +4,6 @@ training:
     epochs: 3
     learning_rate: 2e-5
     weight_decay: 0.01
-
 data:
     dataset_name: "ai-forever/kinopoisk-sentiment-classification"
 model:
